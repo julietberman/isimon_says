@@ -1,7 +1,7 @@
 body{
   display: flex;
   flex-direction: column;
-  height: 90vh;
+  height: 100vh;
   width: 95vw;
   font-family: "space";
   font-size: 250%;
@@ -14,7 +14,7 @@ main {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
 div {
@@ -30,21 +30,26 @@ button{
   border: none;
   background-color: rgba(43, 234, 219, .5);
   padding: 6px 12px;
+  margin: 20px 0;
   font-family: "chess";
   font-size: 24px;
 }
 
+p {
+  padding-top: 20px;
+  margin: 0;
+}
 span.i {
   font-family: "Arial Black";
 }
 span.total {
   font-size: 18px;
-  line-height: 24px;
+  line-height: 30px;
 }
 
-#total{
+#gameover{
 font-family: "chess";
-font-size: 150%;
+font-size: 5vh;
 padding: 0;
 margin: 0;
 }
@@ -72,8 +77,8 @@ flex-wrap: wrap;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*justify-content: center;*/
-  width: 68vw;
+  width: 75vw;
+  height: 70vh;
   margin-top: 20px;
   padding-top: 20px;
   font-family: "chess";

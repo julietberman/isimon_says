@@ -21,6 +21,7 @@ $("button").on("click", function(){
 $(".simon").on("click", playerSequence);
 
 // simon sequence randomly generates letter to flash and stores sequence value
+var audioSimon = new Audio('sounds/simon_beep.wav');
 
 function simonSequence (){
   var number = 	Math.floor( Math.random() * 5)
@@ -28,12 +29,16 @@ function simonSequence (){
   gameData.simon.forEach(function(color, i){
       setTimeout(function(){
         $("img#" + color).fadeOut(200).fadeIn(200);
+        audioSimon.play();
       }, 800 * i)
     });
 }
 
+var audioPlayer = new Audio('sounds/player_beep.wav');
+
 // player sequence function captures and stores player values in an array and compares to simon sequence values
 function playerSequence(){
+  audioPlayer.play();
   $(this).fadeOut(200).fadeIn(200);
   gameData.player.push(($(this).attr("id")))
 
@@ -90,11 +95,14 @@ function addLevel(){
   $("#scoreBoard").html(`level: ${level}`)
 };
 
-var audioLose = new Audio('https://www.dropbox.com/s/ud4fafa7uifk7ah/loseSimon.mp3?dl=1');
+var audioLose = new Audio('sounds/loseSimon.mp3');
 
 function gameOver(){
   audioLose.play();
   var total = level * seconds
   clearInterval(counter);
-  $("#mainText").html(`<p>final score<br/><span class='total'>(level ${level} *  ${seconds} sec)</span>:</p><p id = "total">${total} points</p>`);
+  $("#mainText").html(`<p id = "gameover">- game over -</p><p>final score<br/><span class='total'>(level ${level} *  ${seconds} sec)</span>:<br/>${total} points</p><button>play again</button>`);
+  $("button").on("click", function(){
+    location.reload();
+  });
 }
