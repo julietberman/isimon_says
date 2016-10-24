@@ -7,7 +7,13 @@ simon:[],
 player: []
 }
 
-$("button").on("click", simonSequence);
+
+
+$("button").on("click", function(){
+  setTimeout(simonSequence, 1000);
+  scoreBoard();
+  timer();
+});
 
 $(".simon").on("click", playerSequence);
 
@@ -16,15 +22,15 @@ function simonSequence (){
   gameData.simon.push($("img").eq(number).attr("id"))
   gameData.simon.forEach(function(color, i){
       setTimeout(function(){
-        $("img#" + color).fadeOut(300).fadeIn(300);
-      }, 1000 * i)
+        $("img#" + color).fadeOut(200).fadeIn(200);
+      }, 800 * i)
     });
     console.log(gameData.simon)
 }
 
 
 function playerSequence(){
-  $(this).fadeOut(300).fadeIn(300);
+  $(this).fadeOut(200).fadeIn(200);
   gameData.player.push(($(this).attr("id")))
 
   if (gameData.player.length > gameData.simon.length) {
@@ -44,23 +50,41 @@ function checkMatch(){
     }
   })
 if (x == false){
-  $("body").removeClass("true", 1000).addClass("false", 1000);
-  console.log("wrong")
+  setTimeout(changeBackground, 350)
+  // gameOver();
 
 }
 else {
-  setTimeout(simonSequence, 2000);
+  setTimeout(addLevel, 500);
+  setTimeout(simonSequence, 1500);
 }
   gameData.player=[];
+};
+
+function changeBackground(){
+  $("body").addClass("false").removeClass("true");
+  console.log("wrong")
+};
+
+function scoreBoard(){
+  $("#mainText").html(`<div id='scoreBoard'>level: 1</div><div id='timer'>timer: 0</div>`).css('border-top', '4px dotted white');
+};
+
+var seconds = 0;
+function timer(){
+    $("#timer").html(`timer: ${seconds} sec`);
+    seconds++;
+    console.log(seconds);
+    setTimeout(timer, 1000);
+}
+
+var x = 1;
+function addLevel(){
+  x++;
+  $("#scoreBoard").html(`level: ${x}`)
 };
 
 // function gameOver(){
 //   simon=[];
 //   player=[];
 // }
-
-// for (var i = 0; i < gameData.simon.length; i++) {
-//   setTimeout(function(){
-//         $("div#" + gameData.simon[number]).fadeIn(500).fadeOut(500).fadeIn(500);
-//       }, 1000 * i)
-//     }
