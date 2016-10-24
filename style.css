@@ -13,7 +13,6 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*justify-content: space-between;*/
   width: 100%;
   height: 100%;
 }
@@ -21,11 +20,7 @@ main {
 div {
 margin: 20px;
 }
-p{
-  text-align: center;
-  padding: 0;
-  margin-top: 10px;
-}
+
 img {
 width: 12vw;
 padding: 0 8px;
@@ -39,8 +34,19 @@ button{
   font-size: 24px;
 }
 
-span {
+span.i {
   font-family: "Arial Black";
+}
+span.total {
+  font-size: 18px;
+  line-height: 24px;
+}
+
+#total{
+font-family: "chess";
+font-size: 150%;
+padding: 0;
+margin: 0;
 }
 
 #title{
@@ -61,19 +67,17 @@ justify-content: space-between;
 flex-wrap: wrap;
 }
 
-#box {
-}
 
 #mainText{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 60vw;
+  /*justify-content: center;*/
+  width: 68vw;
   margin-top: 20px;
   padding-top: 20px;
   font-family: "chess";
-  font-size: 26px;
+  font-size: 24px;
   text-align: center;
 }
 
