@@ -81,7 +81,6 @@ var seconds = 0;
 function timer(){
     $("#timer").html(`timer: ${seconds} sec`);
     seconds++;
-
 }
 
 // level feature
@@ -91,8 +90,11 @@ function addLevel(){
   $("#scoreBoard").html(`level: ${level}`)
 };
 
+var audioLose = new Audio('https://www.dropbox.com/s/ud4fafa7uifk7ah/loseSimon.mp3?dl=1');
+
 function gameOver(){
+  audioLose.play();
   var total = level * seconds
   clearInterval(counter);
-  $("#mainText").html(`<p>final score:<br/><span class='total'>(level ${level} *  ${seconds} sec)</span>:</p><p id = "total">${total} points</p>`);
+  $("#mainText").html(`<p>final score<br/><span class='total'>(level ${level} *  ${seconds} sec)</span>:</p><p id = "total">${total} points</p>`);
 }
