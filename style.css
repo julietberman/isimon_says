@@ -2,9 +2,9 @@ body{
   display: flex;
   flex-direction: column;
   height: 90vh;
-  width: 100vw;
+  width: 95vw;
   font-family: "space";
-  font-size: 300%;
+  font-size: 250%;
   color: white;
 }
 
@@ -19,7 +19,7 @@ main {
 }
 
 div {
-margin: 10px;
+margin: 20px;
 }
 p{
   text-align: center;
@@ -45,6 +45,7 @@ span {
 
 #title{
 flex-wrap: wrap;
+text-align: center;
 padding: 0;
 
 }
@@ -64,14 +65,23 @@ flex-wrap: wrap;
 }
 
 #mainText{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: 60vw;
   margin-top: 20px;
   padding-top: 20px;
   font-family: "chess";
   font-size: 26px;
   text-align: center;
-
 }
+
+#timer{
+  width: 100%;
+  align-self: center;
+}
+
 .true{
   background-image: url("images/space.png");
   background-size: cover;
